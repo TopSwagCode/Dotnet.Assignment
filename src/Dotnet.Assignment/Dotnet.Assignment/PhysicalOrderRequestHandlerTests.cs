@@ -4,7 +4,17 @@ using Xunit;
 
 namespace Dotnet.Assignment
 {
-    public class PhysicalOrderRequestHandlerTest
+    /*
+     * 
+If the payment is for a membership, activate that membership.
+If the payment is an upgrade to a membership, apply the upgrade.
+If the payment is for a membership or upgrade, e-mail the owner and inform them of the activation/upgrade.
+If the payment is for the video “Learning to Ski,” add a free “First Aid” video to the packing slip (the result of a court decision in 1997).
+If the payment is for a physical product or a book, generate a commission payment to the agent.
+     * 
+     */
+
+    public class PhysicalOrderRequestHandlerTests
     {
         //If the payment is for a physical product, generate a packing slip for shipping.
         [Fact]
@@ -36,27 +46,5 @@ namespace Dotnet.Assignment
             // Assert
             sut.Invoking(x => x.Handle(orderRequest)).Should().Throw<ArgumentException>();
         }
-    }
-
-    public class PhysicalOrderRequestHandler
-    {
-        public PhysicalOrderRequestHandler()
-        {
-        }
-
-        public void Handle(OrderRequest orderRequest)
-        {
-            if (string.IsNullOrEmpty(orderRequest.ProductName))
-            {
-                throw new ArgumentException("ProductName is required for Physical products.", nameof(orderRequest.ProductName));
-            }
-
-            Console.WriteLine("Generate a packing slip for shipping for a physical product.");
-        }
-    }
-
-    public class OrderRequest
-    {
-        public string ProductName { get; set; }
     }
 }
