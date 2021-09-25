@@ -11,7 +11,7 @@ namespace Dotnet.Assignment
         public void Test()
         {
             // Arrange
-            var orderProccessor = new OrderProccessor();
+            var orderProccessor = new OrderProcessor();
             var bookOrderRequestHandler = new BookOrderRequestHandler();
             //bookOrderRequestHandler.SetNext(new PhysicalOrderRequestHandler()).SetNext()
 
@@ -24,15 +24,15 @@ namespace Dotnet.Assignment
 
     }
 
-    public class OrderProccessor
+    public class OrderProcessor
     {
-        public OrderProccessor()
+        public OrderProcessor()
         {
         }
 
         public void Register(BookOrderRequestHandler bookOrderRequestHandler)
         {
-            throw new NotImplementedException();
+            bookOrderRequestHandler.Handle(orderRequest);
         }
     }
 }
