@@ -2,13 +2,13 @@ using System;
 
 namespace Dotnet.Assignment
 {
-    public class PhysicalPaymentRequestHandler
+    public class PhysicalPaymentRequestHandler : Handler<PaymentRequest>, IHandler<PaymentRequest>
     {
         public PhysicalPaymentRequestHandler()
         {
         }
 
-        public void Handle(PaymentRequest orderRequest)
+        public override void Handle(PaymentRequest orderRequest)
         {
             if (string.IsNullOrEmpty(orderRequest.ProductName))
             {
@@ -17,10 +17,7 @@ namespace Dotnet.Assignment
 
             Console.WriteLine("Generate a packing slip for shipping for a physical product.");
 
-            // Next()
-
-
-
+            base.Handle(orderRequest);
         }
     }
 }

@@ -11,7 +11,11 @@ namespace Dotnet.Assignment
         public void Test()
         {
             // Arrange
-            var orderProccessor = new OrderProcessor();
+            var physicalPaymentRequestHandler = new PhysicalPaymentRequestHandler();
+
+            physicalPaymentRequestHandler.SetNext(new BookPaymentRequestHandler());
+
+            var orderProccessor = new OrderProcessor(physicalPaymentRequestHandler);
 
             var orderRequest = new PaymentRequest
             {
@@ -20,13 +24,10 @@ namespace Dotnet.Assignment
                 ProductType = ProductType.Physical
             };
 
-            var bookOrderRequestHandler = new BookPaymentRequestHandler();
-            //bookOrderRequestHandler.SetNext(new PhysicalOrderRequestHandler()).SetNext()
-
             // Act
-            orderProccessor.Register(bookOrderRequestHandler, orderRequest);
 
             // Assert
+            orderProccessor.Register(orderRequest);
 
         }
 
@@ -34,13 +35,16 @@ namespace Dotnet.Assignment
 
     public class OrderProcessor
     {
-        public OrderProcessor()
+        private IHandler<PaymentRequest> _handler;
+
+        public OrderProcessor(IHandler<PaymentRequest> handler)
         {
+            _handler = handler;
         }
 
-        public void Register(BookPaymentRequestHandler bookOrderRequestHandler, PaymentRequest orderRequest)
+        public void Register(PaymentRequest paymentRequest)
         {
-            bookOrderRequestHandler.Handle(orderRequest);
+            _handler.Handle(paymentRequest);
         }
     }
 }

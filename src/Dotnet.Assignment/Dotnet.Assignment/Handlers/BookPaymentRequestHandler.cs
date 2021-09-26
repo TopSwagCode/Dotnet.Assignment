@@ -3,10 +3,10 @@ using System;
 namespace Dotnet.Assignment
 {
     //If the payment is for a book, create a duplicate packing slip for the royalty department.
-    public class BookPaymentRequestHandler
+    public class BookPaymentRequestHandler : Handler<PaymentRequest>, IHandler<PaymentRequest>
     {
 
-        public void Handle(PaymentRequest orderRequest)
+        public override void Handle(PaymentRequest orderRequest)
         {
             if(orderRequest.Category == null)
             {
@@ -15,8 +15,7 @@ namespace Dotnet.Assignment
 
             Console.WriteLine("Generate a duplicate packing slip for the royalty department");
 
-            // Next()
-
+            base.Handle(orderRequest);
         }
     }
 }
