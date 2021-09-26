@@ -15,8 +15,11 @@ namespace Dotnet.Assignment.UnitTests.Handlers
                 throw new ArgumentNullException(nameof(paymentRequest.Category), "Noooo not null.");
             }
 
-            Console.WriteLine("Generate a duplicate packing slip for the royalty department");
-
+            if(paymentRequest.Category == CategoryType.Book)
+            {
+                Console.WriteLine("Generate a duplicate packing slip for the royalty department");
+            }
+            
             base.Handle(paymentRequest);
         }
     }

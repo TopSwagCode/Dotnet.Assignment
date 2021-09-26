@@ -3,8 +3,8 @@ namespace Dotnet.Assignment.UnitTests.Models
     public class PaymentRequest
     {
         public string ProductName { get; set; }
-        public ProductType ProductType { get; internal set; }
-        public CategoryType? Category { get; internal set; }
+        public ProductType ProductType { get; set; }
+        public CategoryType? Category { get; set; }
 
         public bool IsVirtual => ProductType == ProductType.Virtual;
         // Something similar could be made with Category, where category 5-10 could be electronics, 11-17 could be toys etc.
