@@ -19,7 +19,7 @@ namespace Dotnet.Assignment.UnitTests.Tests
 
             var orderProccessor = new PaymentProcessor(paymentRequestHandlerMock.Object);
 
-            var orderRequest = new PaymentRequest
+            var paymentRequest = new PaymentRequest
             {
                 Category = CategoryType.Shaver,
                 ProductName = "FooBar",
@@ -27,10 +27,10 @@ namespace Dotnet.Assignment.UnitTests.Tests
             };
 
             // Act
-            orderProccessor.Register(orderRequest);
+            orderProccessor.Register(paymentRequest);
 
             // Assert
-            paymentRequestHandlerMock.Verify(handler => handler.Handle(orderRequest), Times.Once);
+            paymentRequestHandlerMock.Verify(handler => handler.Handle(paymentRequest), Times.Once);
         }
     }
 }

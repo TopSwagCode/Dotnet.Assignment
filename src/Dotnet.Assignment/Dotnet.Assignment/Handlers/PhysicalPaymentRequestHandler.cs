@@ -6,20 +6,26 @@ namespace Dotnet.Assignment.UnitTests.Handlers
 {
     public class PhysicalPaymentRequestHandler : Handler<PaymentRequest>, IHandler<PaymentRequest>
     {
-        public PhysicalPaymentRequestHandler()
+        // Could perhaps be made abstract
+        // That way all Physical payments just use this abstract base handler and don't need the same If(IsPhysicalPayment) logic.
+        public PhysicalPaymentRequestHandler() 
         {
         }
 
-        public override void Handle(PaymentRequest orderRequest)
+        public override void Handle(PaymentRequest paymentRequest)
         {
-            if (string.IsNullOrEmpty(orderRequest.ProductName))
+            if (string.IsNullOrEmpty(paymentRequest.ProductName))
             {
-                throw new ArgumentException("ProductName is required for Physical products.", nameof(orderRequest.ProductName));
+                throw new ArgumentException("ProductName is required for Physical products.", nameof(paymentRequest.ProductName));
             }
 
-            Console.WriteLine("Generate a packing slip for shipping for a physical product.");
+            if(paymentRequest.ProductType == ProductType.Physical)
+            {
+                Console.WriteLine("Generate a packing slip for shipping for a physical product.");
+            }
+            
 
-            base.Handle(orderRequest);
+            base.Handle(paymentRequest);
         }
     }
 }

@@ -20,33 +20,33 @@ If the payment is for a physical product or a book, generate a commission paymen
     {
         //If the payment is for a physical product, generate a packing slip for shipping.
         [Fact]
-        public void PhysicalOrderRequestHandlerTest_WithProductName_ShouldNotThrowExceptions()
+        public void PhysicalpaymentRequestHandlerTest_WithProductName_ShouldNotThrowExceptions()
         {
             // Arrange
             var sut = new PhysicalPaymentRequestHandler();
-            var orderRequest = new PaymentRequest
+            var paymentRequest = new PaymentRequest
             {
                 ProductName = "Something awesome"
             };
 
             // Act
-            sut.Handle(orderRequest);
+            sut.Handle(paymentRequest);
 
             // Assert
-            sut.Invoking(x => x.Handle(orderRequest)).Should().NotThrow<ArgumentException>();
+            sut.Invoking(x => x.Handle(paymentRequest)).Should().NotThrow<ArgumentException>();
         }
 
         [Fact]
-        public void PhysicalOrderRequestHandlerTest_WithMissingProductName_ShouldThrowArgumentException()
+        public void PhysicalpaymentRequestHandlerTest_WithMissingProductName_ShouldThrowArgumentException()
         {
             // Arrange
             var sut = new PhysicalPaymentRequestHandler();
-            var orderRequest = new PaymentRequest();
+            var paymentRequest = new PaymentRequest();
 
             // Act
 
             // Assert
-            sut.Invoking(x => x.Handle(orderRequest)).Should().Throw<ArgumentException>();
+            sut.Invoking(x => x.Handle(paymentRequest)).Should().Throw<ArgumentException>();
         }
     }
 }

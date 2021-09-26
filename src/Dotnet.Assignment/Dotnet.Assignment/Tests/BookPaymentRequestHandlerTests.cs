@@ -15,7 +15,7 @@ namespace Dotnet.Assignment.UnitTests.Tests
         {
             // Arrange
             var sut = new BookPaymentRequestHandler();
-            var orderRequest = new PaymentRequest
+            var paymentRequest = new PaymentRequest
             {
                 ProductName = "Something awesome",
                 ProductType = ProductType.Physical,
@@ -23,10 +23,10 @@ namespace Dotnet.Assignment.UnitTests.Tests
             };
 
             // Act
-            sut.Handle(orderRequest);
+            sut.Handle(paymentRequest);
 
             // Assert
-            sut.Invoking(x => x.Handle(orderRequest)).Should().NotThrow<ArgumentException>();
+            sut.Invoking(x => x.Handle(paymentRequest)).Should().NotThrow<ArgumentException>();
         }
 
         [Fact]
@@ -34,12 +34,12 @@ namespace Dotnet.Assignment.UnitTests.Tests
         {
             // Arrange
             var sut = new PhysicalPaymentRequestHandler();
-            var orderRequest = new PaymentRequest();
+            var paymentRequest = new PaymentRequest();
 
             // Act
 
             // Assert
-            sut.Invoking(x => x.Handle(orderRequest)).Should().Throw<ArgumentException>();
+            sut.Invoking(x => x.Handle(paymentRequest)).Should().Throw<ArgumentException>();
         }
     }
 }

@@ -8,16 +8,16 @@ namespace Dotnet.Assignment.UnitTests.Handlers
     public class BookPaymentRequestHandler : Handler<PaymentRequest>, IHandler<PaymentRequest>
     {
 
-        public override void Handle(PaymentRequest orderRequest)
+        public override void Handle(PaymentRequest paymentRequest)
         {
-            if (orderRequest.Category == null)
+            if (paymentRequest.Category == null)
             {
-                throw new ArgumentNullException(nameof(orderRequest.Category), "Noooo not null.");
+                throw new ArgumentNullException(nameof(paymentRequest.Category), "Noooo not null.");
             }
 
             Console.WriteLine("Generate a duplicate packing slip for the royalty department");
 
-            base.Handle(orderRequest);
+            base.Handle(paymentRequest);
         }
     }
 }
