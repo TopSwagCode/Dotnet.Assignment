@@ -8,6 +8,7 @@ namespace Dotnet.Assignment.UnitTests.Handlers
     {
         // Could perhaps be made abstract
         // That way all Physical payments just use this abstract base handler and don't need the same If(IsPhysicalPayment) logic.
+        // Same goes for virtual products
         public PhysicalPaymentRequestHandler() 
         {
         }
@@ -19,7 +20,7 @@ namespace Dotnet.Assignment.UnitTests.Handlers
                 throw new ArgumentException("ProductName is required for Physical products.", nameof(paymentRequest.ProductName));
             }
 
-            if(paymentRequest.ProductType == ProductType.Physical)
+            if(paymentRequest.IsPhysical())
             {
                 Console.WriteLine("Generate a packing slip for shipping for a physical product.");
             }
