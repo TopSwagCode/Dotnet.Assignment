@@ -2,13 +2,13 @@ using System;
 
 namespace Dotnet.Assignment
 {
-    public class PhysicalOrderRequestHandler
+    public class PhysicalPaymentRequestHandler
     {
-        public PhysicalOrderRequestHandler()
+        public PhysicalPaymentRequestHandler()
         {
         }
 
-        public void Handle(OrderRequest orderRequest)
+        public void Handle(PaymentRequest orderRequest)
         {
             if (string.IsNullOrEmpty(orderRequest.ProductName))
             {

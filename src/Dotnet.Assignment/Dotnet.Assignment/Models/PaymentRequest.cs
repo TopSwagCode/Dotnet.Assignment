@@ -1,6 +1,6 @@
 namespace Dotnet.Assignment
 {
-    public class OrderRequest
+    public class PaymentRequest
     {
         public string ProductName { get; set; }
         public ProductType ProductType { get; internal set; }

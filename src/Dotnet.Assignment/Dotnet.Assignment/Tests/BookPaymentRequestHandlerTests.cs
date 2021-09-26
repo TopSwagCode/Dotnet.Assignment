@@ -5,15 +5,15 @@ using Xunit;
 namespace Dotnet.Assignment
 {
 
-    public class BookOrderRequestHandlerTests
+    public class BookPaymentRequestHandlerTests
     {
         //If the payment is for a physical product, generate a packing slip for shipping.
         [Fact]
         public void ProductWithTypeBook_ShouldBeHandledWhenCategoryIsProvided_ShouldNotThrowExceptions()
         {
             // Arrange
-            var sut = new BookOrderRequestHandler();
-            var orderRequest = new OrderRequest
+            var sut = new BookPaymentRequestHandler();
+            var orderRequest = new PaymentRequest
             {
                 ProductName = "Something awesome",
                 ProductType = ProductType.Physical,
@@ -31,8 +31,8 @@ namespace Dotnet.Assignment
         public void WithMissingProductName_ShouldThrowArgumentException()
         {
             // Arrange
-            var sut = new PhysicalOrderRequestHandler();
-            var orderRequest = new OrderRequest();
+            var sut = new PhysicalPaymentRequestHandler();
+            var orderRequest = new PaymentRequest();
 
             // Act
 

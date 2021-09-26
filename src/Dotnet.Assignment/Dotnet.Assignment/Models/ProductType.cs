@@ -1,4 +1,4 @@
-﻿namespace Dotnet.Assignment
+namespace Dotnet.Assignment
 {
     public enum ProductType
     {

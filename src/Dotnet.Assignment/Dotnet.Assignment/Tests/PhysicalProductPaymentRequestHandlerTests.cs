@@ -14,15 +14,15 @@ If the payment is for a physical product or a book, generate a commission paymen
      * 
      */
 
-    public class PhysicalOrderRequestHandlerTests
+    public class PhysicalProductPaymentRequestHandlerTests
     {
         //If the payment is for a physical product, generate a packing slip for shipping.
         [Fact]
         public void PhysicalOrderRequestHandlerTest_WithProductName_ShouldNotThrowExceptions()
         {
             // Arrange
-            var sut = new PhysicalOrderRequestHandler();
-            var orderRequest = new OrderRequest
+            var sut = new PhysicalPaymentRequestHandler();
+            var orderRequest = new PaymentRequest
             {
                 ProductName = "Something awesome"
             };
@@ -38,8 +38,8 @@ If the payment is for a physical product or a book, generate a commission paymen
         public void PhysicalOrderRequestHandlerTest_WithMissingProductName_ShouldThrowArgumentException()
         {
             // Arrange
-            var sut = new PhysicalOrderRequestHandler();
-            var orderRequest = new OrderRequest();
+            var sut = new PhysicalPaymentRequestHandler();
+            var orderRequest = new PaymentRequest();
 
             // Act
 

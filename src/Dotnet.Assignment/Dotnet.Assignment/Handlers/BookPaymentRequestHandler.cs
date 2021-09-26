@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 
 namespace Dotnet.Assignment
 {
     //If the payment is for a book, create a duplicate packing slip for the royalty department.
-    public class BookOrderRequestHandler
+    public class BookPaymentRequestHandler
     {
 
-        public void Handle(OrderRequest orderRequest)
+        public void Handle(PaymentRequest orderRequest)
         {
             if(orderRequest.Category == null)
             {
