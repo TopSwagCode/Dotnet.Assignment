@@ -1,6 +1,8 @@
+using Dotnet.Assignment.UnitTests.Abstractions;
+using Dotnet.Assignment.UnitTests.Models;
 using System;
 
-namespace Dotnet.Assignment
+namespace Dotnet.Assignment.UnitTests.Handlers
 {
     //If the payment is for a book, create a duplicate packing slip for the royalty department.
     public class BookPaymentRequestHandler : Handler<PaymentRequest>, IHandler<PaymentRequest>
@@ -8,7 +10,7 @@ namespace Dotnet.Assignment
 
         public override void Handle(PaymentRequest orderRequest)
         {
-            if(orderRequest.Category == null)
+            if (orderRequest.Category == null)
             {
                 throw new ArgumentNullException(nameof(orderRequest.Category), "Noooo not null.");
             }

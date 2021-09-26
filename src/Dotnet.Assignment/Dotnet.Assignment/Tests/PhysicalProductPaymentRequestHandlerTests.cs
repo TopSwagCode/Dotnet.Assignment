@@ -1,8 +1,10 @@
+using Dotnet.Assignment.UnitTests.Handlers;
+using Dotnet.Assignment.UnitTests.Models;
 using FluentAssertions;
 using System;
 using Xunit;
 
-namespace Dotnet.Assignment
+namespace Dotnet.Assignment.UnitTests.Tests
 {
     /*
      * 

@@ -1,6 +1,8 @@
+using Dotnet.Assignment.UnitTests.Abstractions;
+using Dotnet.Assignment.UnitTests.Models;
 using System;
 
-namespace Dotnet.Assignment
+namespace Dotnet.Assignment.UnitTests.Handlers
 {
     public class PhysicalPaymentRequestHandler : Handler<PaymentRequest>, IHandler<PaymentRequest>
     {

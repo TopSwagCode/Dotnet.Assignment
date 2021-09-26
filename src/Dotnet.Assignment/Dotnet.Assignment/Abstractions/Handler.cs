@@ -1,4 +1,4 @@
-﻿namespace Dotnet.Assignment
+namespace Dotnet.Assignment.UnitTests.Abstractions
 {
     // Idea for Abstraction
     // Have a abstract class with a Next handler.

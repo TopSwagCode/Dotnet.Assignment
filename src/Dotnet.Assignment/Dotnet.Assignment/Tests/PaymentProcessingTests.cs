@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using Moq;
+using Dotnet.Assignment.UnitTests.Abstractions;
+using Dotnet.Assignment.UnitTests.Models;
+using Dotnet.Assignment.UnitTests.Processors;
 
-namespace Dotnet.Assignment
+namespace Dotnet.Assignment.UnitTests.Tests
 {
     public class PaymentProcessingTests
     {
         [Fact]
-        public void Test()
+        public void Register_ShouldRegisterPaymentRequestAndStartProcessing_HandlerShouldBeCalledOnce()
         {
             // Arrange
             var paymentRequestHandlerMock = new Mock<IHandler<PaymentRequest>>();
-            
-            var orderProccessor = new OrderProcessor(paymentRequestHandlerMock.Object);
+
+            var orderProccessor = new PaymentProcessor(paymentRequestHandlerMock.Object);
 
             var orderRequest = new PaymentRequest
             {
@@ -28,8 +31,6 @@ namespace Dotnet.Assignment
 
             // Assert
             paymentRequestHandlerMock.Verify(handler => handler.Handle(orderRequest), Times.Once);
-
         }
-
     }
 }

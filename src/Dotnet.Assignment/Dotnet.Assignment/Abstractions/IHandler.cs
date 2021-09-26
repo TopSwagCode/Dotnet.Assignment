@@ -1,4 +1,4 @@
-﻿namespace Dotnet.Assignment
+namespace Dotnet.Assignment.UnitTests.Abstractions
 {
     public interface IHandler<T> where T : class
     {

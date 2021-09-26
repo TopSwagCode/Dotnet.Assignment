@@ -1,10 +1,13 @@
-﻿namespace Dotnet.Assignment
+using Dotnet.Assignment.UnitTests.Abstractions;
+using Dotnet.Assignment.UnitTests.Models;
+
+namespace Dotnet.Assignment.UnitTests.Processors
 {
-    public class OrderProcessor
+    public class PaymentProcessor
     {
         private IHandler<PaymentRequest> _handler;
 
-        public OrderProcessor(IHandler<PaymentRequest> handler)
+        public PaymentProcessor(IHandler<PaymentRequest> handler)
         {
             _handler = handler;
         }
