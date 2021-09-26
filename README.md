@@ -1,6 +1,6 @@
 # Dotnet.Assignment
 
-## Coding Tests
+https://www.youtube.com/watch?v=jq9wx7Nc5Rw uncut video of the first hour of code. Sadly I had problems recording the second part.
 
 ## Generic Coding Instructions
 
